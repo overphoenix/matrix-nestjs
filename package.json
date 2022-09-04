@@ -1,0 +1,37 @@
+{
+  "name": "matrix-nestjs",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/overphoenix/matrix-nestjs"
+  },
+  "homepage": "https://github.com/overphoenix/matrix-nestjs#readme",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "build": "lerna run build --no-private",
+    "format": "prettier --write \"packages/**/*.ts\" --ignore-path .gitignore",
+    "prepublish:release": "npm run build",
+    "postinstall": "npm run build",
+    "lint": "eslint \"packages/{common,core}/src/**/*.ts\" --fix",
+    "check-updates": "npx npm-check-updates --deep",
+    "update": "npx npm-check-updates --deep -u"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lerna": "^5.5.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ]
+  }
+}
